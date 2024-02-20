@@ -15,10 +15,6 @@ class DigitalBook extends Book
         return $this->filesize;
     }
 
-    public function print(): string
-    {
-        return "{$this->title}, {$this->author}, filesize: {$this->filesize}";
-    }
 
 
 }
