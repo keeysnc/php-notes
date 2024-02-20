@@ -16,24 +16,22 @@ class Product {
     //you dont need to assign a property
     public $emptyPropery;
 
-    public function priceAsCurrency()
+    public function priceAsCurrency($divisor, $currencySymbol = '$')
     {
-        $priceAsCurrency = $this->price / 100;
-        return $priceAsCurrency;
+        $priceAsCurrency = $this->price / $divisor;
+        return $currencySymbol . $priceAsCurrency;
     }
 }
 
-$soapObject1 = new Product();
-$soapObject2 = new Product();
 
 $soapObject1->price = 200;
 $soapObject1->price = 500;
 
-$priceAsCurrency1 = $soapObject1->priceAsCurrency();
-$priceAsCurrency2 = $soapObject2->priceAsCurrency();
+$priceAsCurrency1 = $soapObject1->priceAsCurrency('$');
+$priceAsCurrency2 = $soapObject2->priceAsCurrency('$');
 
-var_dump('price as currency' . $priceAsCurrency1 . PHP_EOL);
-var_dump('price as currency' . $priceAsCurrency2 . PHP_EOL);
+// var_dump('price as currency' . $priceAsCurrency1 . PHP_EOL);
+// var_dump('price as currency' . $priceAsCurrency2 . PHP_EOL);
 
 // access properies within object with ->
 // $soapObject->name = 'toothpaste' . "\n";
